@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <unordered_map>
 
 using namespace std;
 
@@ -25,7 +26,7 @@ class ConcretePrototype1:public Prototype
 {
 public:
     ConcretePrototype1(string prototype_name,float concrete_prototype_field)
-      :prototype(prototype_name),concrete_prototype_field1_(concrete_prototype_field){};
+      :Prototype(prototype_name),concrete_prototype_field1_(concrete_prototype_field){};
 
       Prototype *Clone() const override;
 private:
@@ -36,10 +37,21 @@ class ConcretePrototype2:public Prototype
 {
 public:
     ConcretePrototype2(string prototype_name,float concrete_prototype_field)
-      :prototype(prototype_name),concrete_prototype_field2_(concrete_prototype_field){};
+      :Prototype(prototype_name),concrete_prototype_field2_(concrete_prototype_field){};
 
       Prototype *Clone() const override;
 private:
     float concrete_prototype_field2_;
+};
+
+class PrototypeFactory
+{
+public:
+    PrototypeFactory();
+    ~PrototypeFactory();
+    Prototype *CreatePrototype();
+
+private:
+    std::unordered_map<Type, Prototype *, std::hash<int>> prototypes_;
 };
 #endif // PORT1_H_INCLUDED
