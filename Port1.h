@@ -7,6 +7,11 @@
 
 using namespace std;
 
+enum Type
+{
+    PROTOTYPE_1=0,PROTOTYPE_2
+};
+
 class Prototype
 {
 public:
@@ -52,6 +57,7 @@ public:
     Prototype *CreatePrototype();
 
 private:
-    std::unordered_map<Type, Prototype *, std::hash<int>> prototypes_;
+    std::unordered_map<Type, Prototype *, std::hash<int>> prototypes_;//problem with the template
 };
+void Client (PrototypeFactory &prototype_factory);
 #endif // PORT1_H_INCLUDED
