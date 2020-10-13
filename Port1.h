@@ -20,11 +20,16 @@ public:
 
     virtual ~Prototype();
     virtual Prototype *Clone() const=0;
-    virtual void Method(float prototype_field);
+    virtual void Method(float prototype_field)
+    {
+    this->prototype_field_=prototype_field;
+    cout<<"Call method from "<<prototype_name_<<"with field: "<<prototype_field<<endl;
+    }
+
 
 protected:
     string prototype_name_;
-    float prototype_field;
+    float prototype_field_;
 };
 
 class ConcretePrototype1:public Prototype
