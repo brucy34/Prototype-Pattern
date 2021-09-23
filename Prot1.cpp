@@ -2,8 +2,8 @@
 
 using namespace std;
 
-
- ConcretePrototype1::Prototype *Clone() const override
+//Must to recreate
+ ConcretePrototype1::Prototype *Clone() const override//error here
  {
      return new ConcretePrototype1(*this);
  }
